@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -21,6 +22,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
 
     TextView textView;
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         textView = (TextView) findViewById(R.id.textView);
+        imageView = (ImageView) findViewById(R.id.imageView);
+
 
         Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
@@ -37,10 +41,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button button2 = (Button) findViewById(R.id.button2);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendImageRequest();
+            }
+        });
+
         if (AppHelper.requestQueue == null) {
             AppHelper.requestQueue = Volley.newRequestQueue(getApplicationContext());
         }
 
+    }
+
+    public void sendImageRequest(){
+        String url = "https://movie-phinf.pstatic.net/20200811_76/1597129673074DkH9e_JPEG/movie_image.jpg?type=m665_443_2";
+
+        ImageLoadTask task = new ImageLoadTask(url, imageView);
+        task.execute();
     }
 
     public void sendRequest() {
