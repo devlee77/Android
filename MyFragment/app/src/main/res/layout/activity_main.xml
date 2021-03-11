@@ -7,21 +7,35 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="시작"
-        android:layout_alignParentTop="true"/>
+        android:layout_alignParentTop="true"
+        android:text="메인" />
 
     <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/button">
 
-        <fragment
-            android:id="@+id/mainFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:name="com.example.fragment.MainFragment"/>
+
+<!--        이거 풀면 따로 자바파일에서 쓸필요없음, id 넣어줘야하는듯-->
+<!--        <fragment-->
+<!--            android:id="@+id/mainFragment"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:name="com.example.fragment.MainFragment"/>-->
 
     </FrameLayout>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginLeft="27dp"
+        android:layout_toEndOf="@+id/button"
+        android:layout_toRightOf="@+id/button"
+        android:text="메뉴" />
 
 
 </RelativeLayout>
